@@ -12,7 +12,7 @@ from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
 
 
-PACKAGE_DIR = "pyflagser"
+PACKAGE_DIR = "flagserpy"
 
 version_file = os.path.join(PACKAGE_DIR, "_version.py")
 with open(version_file) as f:
@@ -21,17 +21,17 @@ with open(version_file) as f:
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
-DISTNAME = 'pyflagser'
+DISTNAME = 'flagserpy'
 DESCRIPTION = 'Python bindings for the flagser C++ library.'
 with open('README.rst', encoding='utf-8-sig') as f:
     LONG_DESCRIPTION = f.read()
 LONG_DESCRIPTION_TYPE = 'text/x-rst'
-MAINTAINER = 'Guillaume Tauzin, Umberto Lupo'
-MAINTAINER_EMAIL = 'maintainers@giotto.ai'
-URL = 'https://github.com/giotto-ai/pyflagser'
+MAINTAINER = 'Jason P. Smith, Guillaume Tauzin'
+MAINTAINER_EMAIL = 'jason.smith@ntu.ac.uk'
+URL = 'https://github.com/TopNetBio/flagserpy'
 LICENSE = 'GNU AGPLv3'
 VERSION = __version__  # noqa
-DOWNLOAD_URL = f"https://github.com/giotto-ai/pyflagser/tarball/v{VERSION}"
+DOWNLOAD_URL = f"https://github.com/TopNetBio/flagserpy/tarball/v{VERSION}"
 VERSION = __version__ # noqa
 CLASSIFIERS = ['Intended Audience :: Science/Research',
                'Intended Audience :: Developers',
@@ -108,7 +108,7 @@ class CMakeBuild(build_ext):
 
     def build_extension(self, ext):
         extdir = os.path.abspath(os.path.join(os.path.dirname(
-            self.get_ext_fullpath(ext.name)), 'pyflagser', 'modules'))
+            self.get_ext_fullpath(ext.name)), 'flagserpy', 'modules'))
         cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
                       '-DPYTHON_EXECUTABLE=' + sys.executable]
 
@@ -159,5 +159,5 @@ setup(name=DISTNAME,
       keywords=KEYWORDS,
       install_requires=INSTALL_REQUIRES,
       extras_require=EXTRAS_REQUIRE,
-      ext_modules=[CMakeExtension('pyflagser')],
+      ext_modules=[CMakeExtension('flagserpy')],
       cmdclass=dict(build_ext=CMakeBuild))

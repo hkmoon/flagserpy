@@ -2,13 +2,12 @@
 """Python bindings for the flagser C++ library."""
 
 import os
-import codecs
 import re
 import sys
 import platform
 import subprocess
 
-from pkg_resources.extern.packaging import version
+from packaging import version
 from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
 
@@ -24,7 +23,7 @@ with open('requirements.txt') as f:
 
 DISTNAME = 'pyflagser'
 DESCRIPTION = 'Python bindings for the flagser C++ library.'
-with codecs.open('README.rst', encoding='utf-8-sig') as f:
+with open('README.rst', encoding='utf-8-sig') as f:
     LONG_DESCRIPTION = f.read()
 LONG_DESCRIPTION_TYPE = 'text/x-rst'
 MAINTAINER = 'Guillaume Tauzin, Umberto Lupo'
@@ -50,7 +49,9 @@ CLASSIFIERS = ['Intended Audience :: Science/Research',
                'Programming Language :: Python :: 3.9',
                'Programming Language :: Python :: 3.10',
                'Programming Language :: Python :: 3.11',
-               'Programming Language :: Python :: 3.12']
+               'Programming Language :: Python :: 3.12',
+               'Programming Language :: Python :: 3.13',
+               'Programming Language :: Python :: 3.14']
 KEYWORDS = 'topological data analysis, persistent ' + \
     'homology, directed flags complex, persistence diagrams'
 INSTALL_REQUIRES = requirements

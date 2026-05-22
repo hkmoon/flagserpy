@@ -1,20 +1,20 @@
-.. pyflagser documentation master file, created by
+.. flagserpy documentation master file, created by
    sphinx-quickstart on Mon Jun  3 11:56:46 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pyflagser's API reference!
+Welcome to flagserpy's API reference!
 =====================================
 
 
-:mod:`pyflagser`: Flag Complexes I/O and Persistent Homology
+:mod:`flagserpy`: Flag Complexes I/O and Persistent Homology
 ============================================================
 
-.. automodule:: pyflagser
+.. automodule:: flagserpy
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: pyflagser
+.. currentmodule:: flagserpy
 
 .. autosummary::
    :toctree: generated/

@@ -57,6 +57,7 @@ tests = [
     "pytest-azurepipelines",
     "pytest-benchmark",
     "flake8",
+    "Flake8-pyproject",
 ]
 doc = [
     "sphinx",

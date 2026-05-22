@@ -70,6 +70,7 @@ doc = [
 minimum-version = "0.10"
 cmake.version = ">=3.15"
 wheel.packages = ["flagserpy"]
+editable.mode = "inplace"
 
 # Force-include files that are tracked in the flagser submodule but listed in
 # its nested .gitignore (e.g. include/algorithms.h is generated from

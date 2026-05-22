@@ -41,7 +41,7 @@ jobs:
       - name: Build ${{ github.event.repository.name }}
         run: |
           python -m pip install --upgrade pip
-          python -m pip install ".[doc,tests]"
+          python -m pip install -e ".[doc,tests]"
 
       - name: Install and run flake8 on Mac
         if: ${{ runner.os == 'macOS' }}
@@ -51,12 +51,12 @@ jobs:
       - name: Run test on Mac with coverage generated
         if: ${{ runner.os == 'macOS' }}
         run: |
-          pytest --pyargs flagserpy.tests --cov flagserpy --cov-report xml
+          pytest flagserpy/tests --cov flagserpy --cov-report xml
 
       - name: Run test on Linux and Windows with no coverage generated
         if: ${{ runner.os != 'macOS' }}
         run: |
-          python -m pytest --pyargs flagserpy.tests --no-cov --no-coverage-upload
+          python -m pytest flagserpy/tests --no-cov --no-coverage-upload
 
       - name: Build sphinx doc on Linux
         if: ${{ runner.os == 'Linux' }}

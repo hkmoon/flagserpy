@@ -71,6 +71,11 @@ minimum-version = "0.10"
 cmake.version = ">=3.15"
 wheel.packages = ["flagserpy"]
 
+# Force-include files that are tracked in the flagser submodule but listed in
+# its nested .gitignore (e.g. include/algorithms.h is generated from
+# algorithms.math but the resulting header is committed and required to build).
+sdist.include = ["flagser/include/algorithms.h"]
+
 [tool.cibuildwheel]
 build = ["cp37-*", "cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*", "cp313-*", "cp314-*"]
 skip = ["*-win32", "*-musllinux_*", "*_i686"]

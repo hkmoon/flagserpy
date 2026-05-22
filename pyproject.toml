@@ -74,7 +74,10 @@ wheel.packages = ["flagserpy"]
 # Force-include files that are tracked in the flagser submodule but listed in
 # its nested .gitignore (e.g. include/algorithms.h is generated from
 # algorithms.math but the resulting header is committed and required to build).
-sdist.include = ["flagser/include/algorithms.h"]
+sdist.include = [
+    "flagser/include/algorithms.h",
+    "flagser/test/*.flag",
+]
 
 [tool.cibuildwheel]
 build = ["cp37-*", "cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*", "cp313-*", "cp314-*"]

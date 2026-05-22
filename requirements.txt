@@ -1,3 +1,0 @@
-numpy >= 1.17.0
-scipy >= 0.17.0
-packaging >= 14.0

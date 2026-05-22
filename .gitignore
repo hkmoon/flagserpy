@@ -108,9 +108,6 @@ venv.bak/
 # Emacs
 *~
 
-# Pybind11
-pybind11
-
 # macOS
 *.DS_Store
 

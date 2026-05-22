@@ -1,3 +1,100 @@
 [build-system]
-requires = ["setuptools", "packaging"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.10", "pybind11>=2.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "flagserpy"
+version = "0.4.7"
+description = "Python bindings for the flagser C++ library."
+readme = "README.rst"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jason P. Smith", email = "jason.smith@ntu.ac.uk" },
+    { name = "Guillaume Tauzin" },
+]
+keywords = [
+    "topological data analysis",
+    "persistent homology",
+    "directed flags complex",
+    "persistence diagrams",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved",
+    "Programming Language :: C++",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy >= 1.17.0",
+    "scipy >= 0.17.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/TopNetBio/flagserpy"
+Download = "https://github.com/TopNetBio/flagserpy/tarball/v0.4.7"
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "pytest-timeout",
+    "pytest-cov",
+    "pytest-azurepipelines",
+    "pytest-benchmark",
+    "flake8",
+    "Flake8-pyproject",
+]
+doc = [
+    "sphinx",
+    "sphinx-gallery",
+    "sphinx-issues",
+    "sphinx_rtd_theme",
+    "numpydoc",
+]
+
+[tool.scikit-build]
+minimum-version = "0.10"
+cmake.version = ">=3.15"
+wheel.packages = ["flagserpy"]
+editable.mode = "inplace"
+
+# Force-include files that are tracked in the flagser submodule but listed in
+# its nested .gitignore (e.g. include/algorithms.h is generated from
+# algorithms.math but the resulting header is committed and required to build).
+sdist.include = [
+    "flagser/include/algorithms.h",
+    "flagser/test/*.flag",
+]
+
+[tool.cibuildwheel]
+build = ["cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*", "cp313-*", "cp314-*"]
+skip = ["*-win32", "*-musllinux_*", "*_i686"]
+
+[tool.cibuildwheel.macos]
+archs = ["x86_64", "arm64"]
+
+[tool.pytest.ini_options]
+junit_family = "xunit1"
+addopts = [
+    "--ignore=flagser",
+    "--ignore=flagserpy/tests/__main__.py",
+    "--ignore=flagserpy/tests/conftest.py",
+    "-ra",
+]
+
+[tool.flake8]
+exclude = ["flagser"]

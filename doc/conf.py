@@ -15,12 +15,12 @@ import sys
 
 sys.path.insert(0, os.path.abspath('../'))
 
-from pyflagser import __version__ # noqa
+from flagserpy import __version__ # noqa
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'pyflagser'
+project = 'flagserpy'
 copyright = '2022, L2F'
 author = 'Guillaume Tauzin, Julian Burella Pérez, Umberto Lupo'
 

@@ -108,12 +108,21 @@ venv.bak/
 # Emacs
 *~
 
-# Pybind11
-pybind11
-
 # macOS
 *.DS_Store
 
 # IDEs
 .idea/*
 .vscode/*
+
+# scikit-build-core editable.mode = "inplace" build artifacts
+.cmake/
+.ninja_deps
+.ninja_log
+.skbuild-info.json
+CMakeCache.txt
+CMakeFiles/
+CMakeInit.txt
+build.ninja
+cmake_install.cmake
+flagserpy/modules/

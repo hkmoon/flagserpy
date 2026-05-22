@@ -6,7 +6,7 @@ import pytest
 from multiprocessing import Pool
 from numpy.testing import assert_almost_equal
 
-from pyflagser import load_unweighted_flag, load_weighted_flag, \
+from flagserpy import load_unweighted_flag, load_weighted_flag, \
     flagser_unweighted, flagser_weighted
 
 

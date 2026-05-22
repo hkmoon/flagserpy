@@ -6,9 +6,9 @@ import os
 import numpy as np
 from numpy.testing import assert_almost_equal
 
-from pyflagser import load_unweighted_flag, load_weighted_flag, \
+from flagserpy import load_unweighted_flag, load_weighted_flag, \
     save_weighted_flag, save_unweighted_flag
-from pyflagser._utils import _extract_unweighted_graph, \
+from flagserpy._utils import _extract_unweighted_graph, \
     _extract_weighted_graph
 
 

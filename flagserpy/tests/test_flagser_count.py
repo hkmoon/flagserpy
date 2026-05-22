@@ -4,7 +4,7 @@ import os
 
 from numpy.testing import assert_almost_equal
 
-from pyflagser import load_unweighted_flag, load_weighted_flag, \
+from flagserpy import load_unweighted_flag, load_weighted_flag, \
     flagser_count_unweighted, flagser_count_weighted
 
 
